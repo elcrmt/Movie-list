@@ -1,15 +1,21 @@
-from datetime import datetime  
+from datetime import datetime
 
-def log(message):
+logFile = 'movie.log'
+
+def log(msg):
     """
-    Enregistre un message dans le fichier movie.log à la racine du projet.
-
-    Parametre:
-    message (str): Le message à enregistrer dans le fichier de journal.
+    Saves the msg in a log file {log_file} and prints it in the console.
+    :param msg: the message to be append in the log file
     """
-    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    
-    with open("movie.log", "a") as log_file:
-        log_file.write(f"{current_time} - {message}\n")
+    now = datetime.now()
+    timestamp = now.strftime('%Y/%m/%d %H:%M:%S')
+    formatted = f'{timestamp} - {msg}'
+    with open(logFile, 'a') as f:
+        f.write(formatted + '\n')
 
-    print(f"{current_time} - {message}")
+def show_log():
+    try:
+        with open(logFile, 'r') as f:
+            print(f.read())
+    except FileNotFoundError as e:
+        print(f'Cannot open {logFile}. error={e}')

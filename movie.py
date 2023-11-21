@@ -1,181 +1,104 @@
-#def say_hello(name):
-    #return (f"Hello {name} !")
-
-#name = "Eliott"
-#print(say_hello(name))
 
 
-#for i in range(501):
-    #print(i)
 
-#somme = 0
+import logger
 
-#for i in range(1001):
-    #somme = somme + i
-    #print(somme)
+movie_list = {}
 
-#nombre = int(input("Entrez n'importe quel nombre :"))
-#if (nombre % 2) == 0:
-    #print(nombre, "est paire")
-
-#else:
-    #print(nombre, "est impaire")
-
-
-#liste = [3, 4, 5, 6]
-
-#moy = sum(liste) / len(liste)
-#print(moy)
-
-
-#def afficher_nombres(nombre):
-    #for i in range(1, nombre + 1):
-     #   if i > 500:
-    #        break  
-   #     if i % 5 == 0:
-  #          continue 
- #       print(i)
-
-#nombre = 600
-
-#afficher_nombres(nombre)
-
-#def compter_voyelles(mot):
-    #voyelles = "aeiouyAEIOUY"
-    #nombre_voyelles = 0
-
-    #for lettre in mot:
-   #     if lettre in voyelles:
-  #          nombre_voyelles = nombre_voyelles + 1
-
- #   return nombre_voyelles
-
-#mot = input("Entrez un mot : ")
-#resultat = compter_voyelles(mot)
-#print(f"Le nombre de voyelles dans '{mot}' est : {resultat}")
-
-
-from logger import log
-
-
-films = {}
-
-def create_movie(nom, genre, favori):
+def create_movie(name, genre, favorite):
     """
-    Crée un nouveau film avec les détails donnés.
-
-    Parameters:
-    nom (str): Le nom du film.
-    genre (str): Le genre du film.
-    favori (bool): True si le film est favori, False sinon.
-
-    Returns:
-    dict: Le film créé, ou None si le film existe déjà.
+    Creates a movie to be added in the movie list.
+    :param name: the name of the movie
+    :param is_favorite: True if the movie is favorite
+    :return: A dictionary with all the contact data
     """
-    # Vérifier si le film existe déjà dans la liste
-    if nom not in films:
-        film = {'nom': nom, 'genre': genre, 'favori': favori}
-        log(f"Création du film '{nom}' dans la liste.")
-        add_movie(film)
-        return film
-    else:
-        log(f"Echec, le film '{nom}' est déjà dans la liste.")
-        return None
+    movie = {
+        'name': name,
+        'genre': genre,
+        'favorite': favorite,
+    }
+    logger.log(f'Create movie={movie}')
+    return movie
 
-def add_movie(film):
+
+def add_movie(movie):
     """
-    Ajoute un film à la liste des films.
-
-    Parameters:
-    film (dict): Détails du film à ajouter à la liste.
+    Adds a movie to the movie list.
+    If the movie already exists, the movie is not added.
+    :param movie: the movie to be added
     """
-    nom = film['nom']
-    # Vérifier si le film existe déjà dans la liste
-    if nom not in films:
-        films[nom] = film
-        log(f"Ajout du film '{nom}' à la liste.")
-    else:
-        log(f"Echec, le film '{nom}' est déjà dans la liste.")
+    name = movie['name']
 
-def delete_movie(nom):
+    if name in movie_list.keys():
+        logger.log(f'Add movie failed. Movie already in movie list')
+        return
+
+    logger.log(f'Add movie={movie}')
+    movie_list[name] = movie
+
+def delete_movie(movie_name):
     """
-    Supprime un film de la liste des films.
-
-    Parametre:
-    nom (str): Le nom du film à supprimer.
+    Deletes a movie from the given movie name.
+    :param movie_name: name of the movie to be deleted
+    :return: None, simply deletes the movie from the movie list
     """
     try:
-        del films[nom]
-        log(f"Suppression du film '{nom}' de la liste.")
-    except KeyError:
-        log(f"Erreur: Le film '{nom}' n'est pas dans la liste.")
+        movie = movie_list[movie_name]
+        logger.log(f'Delete movie={movie}')
+        del movie_list[movie_name]
+    except KeyError as e:
+        logger.log(f'Film non trouve pour le nom {movie_name}')
+        return None
 
 
 def get_names():
     """
-    Renvoie une liste alphabétique des noms de films.
-
-    Return:
-    list: Liste alphabétique des noms de films.
+    Retrieves an alphabetically sorted list of all the movies names of the movie list.
+    :return: the sorted list of movie names
     """
-    log("Obtention de la liste alphabétique des noms de films.")
-    return sorted(films.keys())
+    logger.log('Display alphabetically sorted list of all the movies names')
+    return sorted(movie_list.keys())
+
 
 def display_all():
-    """Affiche tous les films."""
-    log("Affichage de tous les films.")
-    for film in films.values():
-        print(f"Nom: {film['nom']}, Genre: {film['genre']}, Favori: {film['favori']}")
+    """
+    Display all the movies of the movie list
+    """
+    logger.log('Display all')
+    for movie_name, movie in movie_list.items():
+        print(f'{movie_name}={movie}')
+
 
 def get_genres():
     """
-    Renvoie un dictionnaire avec les genres en clé et le nombre de films correspondant au genre en valeur.
-
-    Return:
-    dict: Dictionnaire des genres et du nombre de films correspondant.
+    Returns a dictionnary of genres in the movie list
     """
-    log("Obtention du nombre de films par genre.")
-    genres_count = {}
-    for film in films.values():
-        genre = film['genre']
-        genres_count[genre] = genres_count.get(genre, 0) + 1
-    return genres_count
+    res = {}
+    for name, movie in movie_list.items():
+        genre = movie['genre']
+        res[genre] = res.get(genre, 0) + 1
+    return res
 
 def get_favorites():
     """
-    Renvoie une liste alphabétique des films favoris.
-
-    Return:
-    list: Liste alphabétique des noms des films favoris.
+    Returns an alphabetically sorted list of favorite movies
     """
-    log("Obtention de la liste des films favoris.")
-    favorites = [film['nom'] for film in films.values() if film['favori']]
-    return sorted(favorites)
+    res = []
+    for name, movie in movie_list.items():
+        if movie['favorite']:
+            res.append(name)
+    res.sort()
+    return res
 
 def get_names_by_genre(genre):
     """
-    Renvoie une liste alphabétique des noms de films pour un genre donné.
-
-    Parametre:
-    genre (str): Le genre pour lequel récupérer les noms de films.
-
-    Return:
-    list: Liste alphabétique des noms de films pour le genre donné.
+    Returns an alphabetically sorted list of movies for the given genre
     """
-    log(f"Obtention de la liste des films pour le genre '{genre}'.")
-    genre_names = [film['nom'] for film in films.values() if film['genre'] == genre]
-    return sorted(genre_names)
-
-def add_movie_input():
-    nom = input("Nom du film: ")
-    genre = input("Genre du film: ")
-    favori = input("Le film est-il favori? (True/False): ").lower() == 'true'
-
-    nouveau_film = create_movie(nom, genre, favori)
-    if nouveau_film:
-        add_movie(nouveau_film)
-        print(f"Le film '{nom}' a été ajouté avec succès.")
-
+    res = []
+    for name, movie in movie_list.items():
+        if movie['genre'] == genre:
+            res.append(name)
+    return sorted(res)
 
 
 nouveau_film = create_movie('Fight Club', 'Action, Suspense', True)
@@ -226,7 +149,6 @@ names_by_genre = get_names_by_genre(genre_to_search)
 print(f"\nListe alphabétique des noms de films pour le genre '{genre_to_search}':")
 print(names_by_genre)
 
-add_movie_input()
 display_all()
 
 
