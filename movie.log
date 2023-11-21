@@ -352,3 +352,83 @@
 2023/11/21 11:34:49 - Create movie={'name': 'Cars', 'genre': 'Animation', 'favorite': False}
 2023/11/21 11:34:49 - Add movie={'name': 'Cars', 'genre': 'Animation', 'favorite': False}
 2023/11/21 11:34:49 - Film non trouve pour le nom Carss
+2023/11/21 11:58:31 - Create movie={'name': 'Fight Club', 'genre': 'Action, Suspense', 'favorite': True}
+2023/11/21 11:58:31 - Add movie={'name': 'Fight Club', 'genre': 'Action, Suspense', 'favorite': True}
+2023/11/21 11:58:31 - Create movie={'name': 'Star Wars', 'genre': 'Action', 'favorite': True}
+2023/11/21 11:58:31 - Add movie={'name': 'Star Wars', 'genre': 'Action', 'favorite': True}
+2023/11/21 11:58:31 - Create movie={'name': 'Ca', 'genre': 'Horreur', 'favorite': False}
+2023/11/21 11:58:31 - Add movie={'name': 'Ca', 'genre': 'Horreur', 'favorite': False}
+2023/11/21 11:58:31 - Create movie={'name': 'Top Gun', 'genre': 'Science fiction', 'favorite': True}
+2023/11/21 11:58:31 - Add movie={'name': 'Top Gun', 'genre': 'Science fiction', 'favorite': True}
+2023/11/21 11:58:31 - Create movie={'name': 'The Dark Knight', 'genre': 'Action', 'favorite': True}
+2023/11/21 11:58:31 - Add movie={'name': 'The Dark Knight', 'genre': 'Action', 'favorite': True}
+2023/11/21 11:58:31 - Create movie={'name': 'La La Land', 'genre': 'Musical', 'favorite': False}
+2023/11/21 11:58:31 - Add movie={'name': 'La La Land', 'genre': 'Musical', 'favorite': False}
+2023/11/21 11:58:31 - Display alphabetically sorted list of all the movies names
+2023/11/21 11:58:31 - Display all
+2023/11/21 11:58:31 - Display all
+2023/11/21 11:58:31 - Display all
+2023/11/21 11:59:15 - Create movie={'name': 'Fight Club', 'genre': 'Action, Suspense', 'favorite': True}
+2023/11/21 11:59:15 - Add movie={'name': 'Fight Club', 'genre': 'Action, Suspense', 'favorite': True}
+2023/11/21 11:59:15 - Create movie={'name': 'Star Wars', 'genre': 'Action', 'favorite': True}
+2023/11/21 11:59:15 - Add movie={'name': 'Star Wars', 'genre': 'Action', 'favorite': True}
+2023/11/21 11:59:15 - Create movie={'name': 'Ca', 'genre': 'Horreur', 'favorite': False}
+2023/11/21 11:59:15 - Add movie={'name': 'Ca', 'genre': 'Horreur', 'favorite': False}
+2023/11/21 11:59:15 - Create movie={'name': 'Top Gun', 'genre': 'Science fiction', 'favorite': True}
+2023/11/21 11:59:15 - Add movie={'name': 'Top Gun', 'genre': 'Science fiction', 'favorite': True}
+2023/11/21 11:59:15 - Create movie={'name': 'The Dark Knight', 'genre': 'Action', 'favorite': True}
+2023/11/21 11:59:15 - Add movie={'name': 'The Dark Knight', 'genre': 'Action', 'favorite': True}
+2023/11/21 11:59:15 - Create movie={'name': 'La La Land', 'genre': 'Musical', 'favorite': False}
+2023/11/21 11:59:15 - Add movie={'name': 'La La Land', 'genre': 'Musical', 'favorite': False}
+2023/11/21 11:59:15 - Display alphabetically sorted list of all the movies names
+2023/11/21 11:59:15 - Display all
+2023/11/21 11:59:15 - Display all
+2023/11/21 11:59:15 - Display all
+2023/11/21 12:01:15 - Create movie={'name': 'Fight Club', 'genre': 'Action, Suspense', 'favorite': True}
+2023/11/21 12:01:15 - Add movie={'name': 'Fight Club', 'genre': 'Action, Suspense', 'favorite': True}
+2023/11/21 12:01:15 - Create movie={'name': 'Star Wars', 'genre': 'Action', 'favorite': True}
+2023/11/21 12:01:15 - Add movie={'name': 'Star Wars', 'genre': 'Action', 'favorite': True}
+2023/11/21 12:01:15 - Create movie={'name': 'Ca', 'genre': 'Horreur', 'favorite': False}
+2023/11/21 12:01:15 - Add movie={'name': 'Ca', 'genre': 'Horreur', 'favorite': False}
+2023/11/21 12:01:15 - Create movie={'name': 'Top Gun', 'genre': 'Science fiction', 'favorite': True}
+2023/11/21 12:01:15 - Add movie={'name': 'Top Gun', 'genre': 'Science fiction', 'favorite': True}
+2023/11/21 12:01:15 - Create movie={'name': 'The Dark Knight', 'genre': 'Action', 'favorite': True}
+2023/11/21 12:01:15 - Add movie={'name': 'The Dark Knight', 'genre': 'Action', 'favorite': True}
+2023/11/21 12:01:15 - Create movie={'name': 'La La Land', 'genre': 'Musical', 'favorite': False}
+2023/11/21 12:01:15 - Add movie={'name': 'La La Land', 'genre': 'Musical', 'favorite': False}
+2023/11/21 12:01:15 - Display alphabetically sorted list of all the movies names
+2023/11/21 12:01:15 - Display all
+2023/11/21 12:01:15 - Display all
+2023/11/21 12:01:15 - Display all
+2023/11/21 12:02:35 - Create movie={'name': 'Fight Club', 'genre': 'Action, Suspense', 'favorite': True}
+2023/11/21 12:02:35 - Add movie={'name': 'Fight Club', 'genre': 'Action, Suspense', 'favorite': True}
+2023/11/21 12:02:35 - Create movie={'name': 'Star Wars', 'genre': 'Action', 'favorite': True}
+2023/11/21 12:02:35 - Add movie={'name': 'Star Wars', 'genre': 'Action', 'favorite': True}
+2023/11/21 12:02:35 - Create movie={'name': 'Ca', 'genre': 'Horreur', 'favorite': False}
+2023/11/21 12:02:35 - Add movie={'name': 'Ca', 'genre': 'Horreur', 'favorite': False}
+2023/11/21 12:02:35 - Create movie={'name': 'Top Gun', 'genre': 'Science fiction', 'favorite': True}
+2023/11/21 12:02:35 - Add movie={'name': 'Top Gun', 'genre': 'Science fiction', 'favorite': True}
+2023/11/21 12:02:35 - Create movie={'name': 'The Dark Knight', 'genre': 'Action', 'favorite': True}
+2023/11/21 12:02:35 - Add movie={'name': 'The Dark Knight', 'genre': 'Action', 'favorite': True}
+2023/11/21 12:02:35 - Create movie={'name': 'La La Land', 'genre': 'Musical', 'favorite': False}
+2023/11/21 12:02:35 - Add movie={'name': 'La La Land', 'genre': 'Musical', 'favorite': False}
+2023/11/21 12:02:35 - Display alphabetically sorted list of all the movies names
+2023/11/21 12:02:35 - Display all
+2023/11/21 12:02:35 - Display all
+2023/11/21 12:02:35 - Display all
+2023/11/21 12:14:06 - Create movie={'name': 'Fight Club', 'genre': 'Action, Suspense', 'favorite': True}
+2023/11/21 12:14:06 - Add movie={'name': 'Fight Club', 'genre': 'Action, Suspense', 'favorite': True}
+2023/11/21 12:14:06 - Create movie={'name': 'Star Wars', 'genre': 'Action', 'favorite': True}
+2023/11/21 12:14:06 - Add movie={'name': 'Star Wars', 'genre': 'Action', 'favorite': True}
+2023/11/21 12:14:06 - Create movie={'name': 'Ca', 'genre': 'Horreur', 'favorite': False}
+2023/11/21 12:14:06 - Add movie={'name': 'Ca', 'genre': 'Horreur', 'favorite': False}
+2023/11/21 12:14:06 - Create movie={'name': 'Top Gun', 'genre': 'Science fiction', 'favorite': True}
+2023/11/21 12:14:06 - Add movie={'name': 'Top Gun', 'genre': 'Science fiction', 'favorite': True}
+2023/11/21 12:14:06 - Create movie={'name': 'The Dark Knight', 'genre': 'Action', 'favorite': True}
+2023/11/21 12:14:06 - Add movie={'name': 'The Dark Knight', 'genre': 'Action', 'favorite': True}
+2023/11/21 12:14:06 - Create movie={'name': 'La La Land', 'genre': 'Musical', 'favorite': False}
+2023/11/21 12:14:06 - Add movie={'name': 'La La Land', 'genre': 'Musical', 'favorite': False}
+2023/11/21 12:14:06 - Display alphabetically sorted list of all the movies names
+2023/11/21 12:14:06 - Display all
+2023/11/21 12:14:06 - Display all
+2023/11/21 12:14:06 - Display all

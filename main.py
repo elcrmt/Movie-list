@@ -51,6 +51,6 @@ if len(args) == 2:
 
 {
     "workbench.colorCustomizations": {
-    "terminal.letter"
+    "editor.background": "#1c1920",
   }
 }

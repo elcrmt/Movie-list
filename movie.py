@@ -1,155 +1,119 @@
-
-
-
 import logger
 
-movie_list = {}
+class Movie:
+    def __init__(self, name, genre, favorite):
+        self.name = name
+        self.genre = genre
+        self.favorite = favorite
 
-def create_movie(name, genre, favorite):
-    """
-    Creates a movie to be added in the movie list.
-    :param name: the name of the movie
-    :param is_favorite: True if the movie is favorite
-    :return: A dictionary with all the contact data
-    """
-    movie = {
-        'name': name,
-        'genre': genre,
-        'favorite': favorite,
-    }
-    logger.log(f'Create movie={movie}')
-    return movie
+    def __str__(self):
+        return f"{self.name} - Genre: {self.genre}, Favorite: {self.favorite}"
 
+class MovieList:
+    def __init__(self):
+        self.movie_list = {}
 
-def add_movie(movie):
-    """
-    Adds a movie to the movie list.
-    If the movie already exists, the movie is not added.
-    :param movie: the movie to be added
-    """
-    name = movie['name']
+    def add_movie(self, movie):
+        name = movie.name
 
-    if name in movie_list.keys():
-        logger.log(f'Add movie failed. Movie already in movie list')
-        return
+        if name in self.movie_list.keys():
+            logger.log(f'Add movie failed. Movie already in movie list')
+            return
 
-    logger.log(f'Add movie={movie}')
-    movie_list[name] = movie
+        logger.log(f'Add movie={movie}')
+        self.movie_list[name] = movie
 
-def delete_movie(movie_name):
-    """
-    Deletes a movie from the given movie name.
-    :param movie_name: name of the movie to be deleted
-    :return: None, simply deletes the movie from the movie list
-    """
-    try:
-        movie = movie_list[movie_name]
-        logger.log(f'Delete movie={movie}')
-        del movie_list[movie_name]
-    except KeyError as e:
-        logger.log(f'Film non trouve pour le nom {movie_name}')
-        return 
+    def delete_movie(self, movie_name):
+        try:
+            movie = self.movie_list[movie_name]
+            logger.log(f'Delete movie={movie}')
+            del self.movie_list[movie_name]
+        except KeyError as e:
+            logger.log(f'Film non trouve pour le nom {movie_name}')
+            return
 
+    def get_names(self):
+        logger.log('Display alphabetically sorted list of all the movies names')
+        return sorted(self.movie_list.keys())
 
-def get_names():
-    """
-    Retrieves an alphabetically sorted list of all the movies names of the movie list.
-    :return: the sorted list of movie names
-    """
-    logger.log('Display alphabetically sorted list of all the movies names')
-    return sorted(movie_list.keys())
+    def display_all(self):
+        logger.log('Display all')
+        for movie_name, movie in self.movie_list.items():
+            print(f'{movie_name}={movie}')
 
+    def get_genres(self):
+        res = {}
+        for name, movie in self.movie_list.items():
+            genre = movie.genre
+            res[genre] = res.get(genre, 0) + 1
+        return res
 
-def display_all():
-    """
-    Display all the movies of the movie list
-    """
-    logger.log('Display all')
-    for movie_name, movie in movie_list.items():
-        print(f'{movie_name}={movie}')
+    def get_favorites(self):
+        res = []
+        for name, movie in self.movie_list.items():
+            if movie.favorite:
+                res.append(name)
+        res.sort()
+        return res
 
+    def get_names_by_genre(self, genre):
+        res = []
+        for name, movie in self.movie_list.items():
+            if movie.genre == genre:
+                res.append(name)
+        return sorted(res)
 
-def get_genres():
-    """
-    Returns a dictionnary of genres in the movie list
-    """
-    res = {}
-    for name, movie in movie_list.items():
-        genre = movie['genre']
-        res[genre] = res.get(genre, 0) + 1
-    return res
+# Utilisation des classes Movie et MovieList
+movie_list_instance = MovieList()
 
-def get_favorites():
-    """
-    Returns an alphabetically sorted list of favorite movies
-    """
-    res = []
-    for name, movie in movie_list.items():
-        if movie['favorite']:
-            res.append(name)
-    res.sort()
-    return res
-
-def get_names_by_genre(genre):
-    """
-    Returns an alphabetically sorted list of movies for the given genre
-    """
-    res = []
-    for name, movie in movie_list.items():
-        if movie['genre'] == genre:
-            res.append(name)
-    return sorted(res)
-
-
-nouveau_film = create_movie('Fight Club', 'Action, Suspense', True)
+nouveau_film = Movie('Fight Club', 'Action, Suspense', True)
 if nouveau_film:
-    add_movie(nouveau_film)
+    movie_list_instance.add_movie(nouveau_film)
 
-nouveau_film = create_movie('Star Wars', 'Action', True)
+nouveau_film = Movie('Star Wars', 'Action', True)
 if nouveau_film:
-    add_movie(nouveau_film)
+    movie_list_instance.add_movie(nouveau_film)
 
-nouveau_film = create_movie('Ca', 'Horreur', False)
+nouveau_film = Movie('Ca', 'Horreur', False)
 if nouveau_film:
-    add_movie(nouveau_film)
+    movie_list_instance.add_movie(nouveau_film)
 
-nouveau_film = create_movie("Top Gun", "Science fiction", True)
+nouveau_film = Movie("Top Gun", "Science fiction", True)
 if nouveau_film:
-    add_movie(nouveau_film)
+    movie_list_instance.add_movie(nouveau_film)
 
-nouveau_film = create_movie("The Dark Knight", "Action", True)
+nouveau_film = Movie("The Dark Knight", "Action", True)
 if nouveau_film:
-    add_movie(nouveau_film)
+    movie_list_instance.add_movie(nouveau_film)
 
-nouveau_film = create_movie("La La Land", "Musical", False)
+nouveau_film = Movie("La La Land", "Musical", False)
 if nouveau_film:
-    add_movie(nouveau_film)
+    movie_list_instance.add_movie(nouveau_film)
 
-#delete_movie('Star Wars')
+# Supprimer un film
+# movie_list_instance.delete_movie('Star Wars')
 
-trie_nom_film = get_names()
+# Récupérer et afficher les données
+trie_nom_film = movie_list_instance.get_names()
 print("\nListe alphabétique des noms de films :")
 print(trie_nom_film)
 
-display_film_all = display_all()
 print("\nListe de tous les films :")
-display_all()
+movie_list_instance.display_all()
 
-get_genre_film = get_genres()
+get_genre_film = movie_list_instance.get_genres()
 print("\nListe de films avec genre :")
 for genre, count in get_genre_film.items():
     print(f"{genre}: {count} films")
 
-get_fav_movies = get_favorites()
+get_fav_movies = movie_list_instance.get_favorites()
 print("\nListe alphabétique des films favoris :")
 print(get_fav_movies)
 
 genre_to_search = 'Action'
-names_by_genre = get_names_by_genre(genre_to_search)
+names_by_genre = movie_list_instance.get_names_by_genre(genre_to_search)
 print(f"\nListe alphabétique des noms de films pour le genre '{genre_to_search}':")
 print(names_by_genre)
 
-display_all()
-
-
-
+# Afficher tous les films
+movie_list_instance.display_all()
