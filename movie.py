@@ -166,6 +166,18 @@ def get_names_by_genre(genre):
     genre_names = [film['nom'] for film in films.values() if film['genre'] == genre]
     return sorted(genre_names)
 
+def add_movie_input():
+    nom = input("Nom du film: ")
+    genre = input("Genre du film: ")
+    favori = input("Le film est-il favori? (True/False): ").lower() == 'true'
+
+    nouveau_film = create_movie(nom, genre, favori)
+    if nouveau_film:
+        add_movie(nouveau_film)
+        print(f"Le film '{nom}' a été ajouté avec succès.")
+
+
+
 nouveau_film = create_movie('Fight Club', 'Action, Suspense', True)
 if nouveau_film:
     add_movie(nouveau_film)
@@ -214,6 +226,7 @@ names_by_genre = get_names_by_genre(genre_to_search)
 print(f"\nListe alphabétique des noms de films pour le genre '{genre_to_search}':")
 print(names_by_genre)
 
+add_movie_input()
 display_all()
 
 
