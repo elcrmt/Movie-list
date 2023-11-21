@@ -48,7 +48,7 @@ def delete_movie(movie_name):
         del movie_list[movie_name]
     except KeyError as e:
         logger.log(f'Film non trouve pour le nom {movie_name}')
-        return None
+        return 
 
 
 def get_names():

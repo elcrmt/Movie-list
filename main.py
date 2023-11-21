@@ -8,7 +8,7 @@ def say_hello(name: str):
     print(f'Hello {name} !')
     return
 
-print(say_hello('Thomas'))
+print(say_hello('Eliott'))
 
 movie = create_movie('Star Wars', 'Science fiction', True)
 add_movie(movie)
@@ -22,7 +22,7 @@ add_movie(movie)
 movie = create_movie('Cars', 'Animation', False)
 add_movie(movie)
 
-delete_movie('Carss')
+#delete_movie('Cars')
 
 print(get_genres())
 
@@ -48,3 +48,9 @@ if len(args) == 2:
         print(res)
     else:
         print('Invalid argument !')
+
+{
+    "workbench.colorCustomizations": {
+    "terminal.letter"
+  }
+}
